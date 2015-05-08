@@ -8,11 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		E5C03A3B1AFC6FFE00A08425 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C03A3A1AFC6FFE00A08425 /* AppDelegate.swift */; };
-		E5C03A3D1AFC6FFE00A08425 /* Document.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C03A3C1AFC6FFE00A08425 /* Document.swift */; };
+		E5C03A3D1AFC6FFE00A08425 /* GMDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C03A3C1AFC6FFE00A08425 /* GMDocument.swift */; };
 		E5C03A401AFC6FFE00A08425 /* Document.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5C03A3E1AFC6FFE00A08425 /* Document.xib */; };
 		E5C03A421AFC6FFE00A08425 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E5C03A411AFC6FFE00A08425 /* Images.xcassets */; };
 		E5C03A451AFC6FFE00A08425 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5C03A431AFC6FFE00A08425 /* MainMenu.xib */; };
 		E5C03A511AFC6FFE00A08425 /* GridmarksTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C03A501AFC6FFE00A08425 /* GridmarksTests.swift */; };
+		E5C03A5B1AFC72A700A08425 /* LabBot.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5C03A5A1AFC72A700A08425 /* LabBot.framework */; };
+		E5C03A5D1AFC734000A08425 /* GMExperimentWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C03A5C1AFC734000A08425 /* GMExperimentWindowController.swift */; };
+		E5C03A601AFC75B400A08425 /* GMExperimenterWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5C03A5F1AFC75B400A08425 /* GMExperimenterWindow.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,13 +32,16 @@
 		E5C03A351AFC6FFE00A08425 /* Gridmarks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Gridmarks.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5C03A391AFC6FFE00A08425 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E5C03A3A1AFC6FFE00A08425 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		E5C03A3C1AFC6FFE00A08425 /* Document.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Document.swift; sourceTree = "<group>"; };
+		E5C03A3C1AFC6FFE00A08425 /* GMDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GMDocument.swift; sourceTree = "<group>"; };
 		E5C03A3F1AFC6FFE00A08425 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/Document.xib; sourceTree = "<group>"; };
 		E5C03A411AFC6FFE00A08425 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		E5C03A441AFC6FFE00A08425 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		E5C03A4A1AFC6FFE00A08425 /* GridmarksTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GridmarksTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5C03A4F1AFC6FFE00A08425 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E5C03A501AFC6FFE00A08425 /* GridmarksTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridmarksTests.swift; sourceTree = "<group>"; };
+		E5C03A5A1AFC72A700A08425 /* LabBot.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LabBot.framework; path = ../../../../Library/Frameworks/LabBot.framework; sourceTree = "<group>"; };
+		E5C03A5C1AFC734000A08425 /* GMExperimentWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GMExperimentWindowController.swift; sourceTree = "<group>"; };
+		E5C03A5F1AFC75B400A08425 /* GMExperimenterWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GMExperimenterWindow.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +49,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E5C03A5B1AFC72A700A08425 /* LabBot.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -62,6 +69,7 @@
 				E5C03A371AFC6FFE00A08425 /* Gridmarks */,
 				E5C03A4D1AFC6FFE00A08425 /* GridmarksTests */,
 				E5C03A361AFC6FFE00A08425 /* Products */,
+				E5C03A5A1AFC72A700A08425 /* LabBot.framework */,
 			);
 			sourceTree = "<group>";
 		};
@@ -78,8 +86,10 @@
 			isa = PBXGroup;
 			children = (
 				E5C03A3A1AFC6FFE00A08425 /* AppDelegate.swift */,
-				E5C03A3C1AFC6FFE00A08425 /* Document.swift */,
+				E5C03A3C1AFC6FFE00A08425 /* GMDocument.swift */,
 				E5C03A3E1AFC6FFE00A08425 /* Document.xib */,
+				E5C03A5C1AFC734000A08425 /* GMExperimentWindowController.swift */,
+				E5C03A5F1AFC75B400A08425 /* GMExperimenterWindow.xib */,
 				E5C03A411AFC6FFE00A08425 /* Images.xcassets */,
 				E5C03A431AFC6FFE00A08425 /* MainMenu.xib */,
 				E5C03A381AFC6FFE00A08425 /* Supporting Files */,
@@ -120,6 +130,7 @@
 			buildConfigurationList = E5C03A541AFC6FFE00A08425 /* Build configuration list for PBXNativeTarget "Gridmarks" */;
 			buildPhases = (
 				E5C03A311AFC6FFE00A08425 /* Sources */,
+				E5C03A5E1AFC74A800A08425 /* ShellScript */,
 				E5C03A321AFC6FFE00A08425 /* Frameworks */,
 				E5C03A331AFC6FFE00A08425 /* Resources */,
 			);
@@ -195,6 +206,7 @@
 				E5C03A401AFC6FFE00A08425 /* Document.xib in Resources */,
 				E5C03A421AFC6FFE00A08425 /* Images.xcassets in Resources */,
 				E5C03A451AFC6FFE00A08425 /* MainMenu.xib in Resources */,
+				E5C03A601AFC75B400A08425 /* GMExperimenterWindow.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -207,13 +219,30 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		E5C03A5E1AFC74A800A08425 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "${PROJECT_DIR}/tools/incBuildNum.sh \"${PROJECT_DIR}/${INFOPLIST_FILE}\" \"${PROJECT_DIR}\"";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		E5C03A311AFC6FFE00A08425 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E5C03A3D1AFC6FFE00A08425 /* Document.swift in Sources */,
+				E5C03A3D1AFC6FFE00A08425 /* GMDocument.swift in Sources */,
 				E5C03A3B1AFC6FFE00A08425 /* AppDelegate.swift in Sources */,
+				E5C03A5D1AFC734000A08425 /* GMExperimentWindowController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -340,6 +369,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(USER_LIBRARY_DIR)/Frameworks",
+				);
 				INFOPLIST_FILE = Gridmarks/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -351,6 +384,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(USER_LIBRARY_DIR)/Frameworks",
+				);
 				INFOPLIST_FILE = Gridmarks/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";

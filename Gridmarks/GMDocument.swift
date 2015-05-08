@@ -7,12 +7,19 @@
 //
 
 import Cocoa
+import LabBot
 
-class Document: NSDocument {
+class GMDocument: DRHExperimentDocument {
+    let experimentData = DRHExperimentData()
 
     override init() {
         super.init()
         // Add your subclass-specific initialization here.
+        subjectWindowController = nil
+    }
+    
+    override func newExperimenterWindowController() -> AnyObject! {
+        return GMExperimentWindowController()
     }
 
     override func windowControllerDidLoadNib(aController: NSWindowController) {
@@ -22,12 +29,6 @@ class Document: NSDocument {
 
     override class func autosavesInPlace() -> Bool {
         return true
-    }
-
-    override var windowNibName: String? {
-        // Returns the nib file name of the document
-        // If you need to use a subclass of NSWindowController or if your document supports multiple NSWindowControllers, you should remove this property and override -makeWindowControllers instead.
-        return "Document"
     }
 
     override func dataOfType(typeName: String, error outError: NSErrorPointer) -> NSData? {
