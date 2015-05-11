@@ -6,6 +6,7 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="GMExperimentWindowController" customModule="Gridmarks" customModuleProvider="target">
             <connections>
+                <outlet property="cameraPopup" destination="Q3y-ox-D6D" id="hlU-gV-G4V"/>
                 <outlet property="experimentDatePicker" destination="Off-O2-Jlp" id="ndm-wh-Y2n"/>
                 <outlet property="experimentFilenameStemField" destination="SNs-m4-1Td" id="8rK-An-Ga7"/>
                 <outlet property="experimentNameField" destination="C1V-6S-KWt" id="cLz-qz-uFD"/>
@@ -168,6 +169,9 @@
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="system"/>
                         </buttonCell>
+                        <connections>
+                            <action selector="stopExperiment:" target="-2" id="ybP-0D-zZZ"/>
+                        </connections>
                     </button>
                     <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OJg-r2-eza">
                         <rect key="frame" x="513" y="13" width="77" height="32"/>
@@ -175,7 +179,28 @@
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="system"/>
                         </buttonCell>
+                        <connections>
+                            <action selector="finishExperiment:" target="-2" id="MVb-1y-KAY"/>
+                        </connections>
                     </button>
+                    <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Q3y-ox-D6D">
+                        <rect key="frame" x="19" y="420" width="225" height="26"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="220" id="91b-6K-qsQ"/>
+                            <constraint firstAttribute="height" constant="21" id="DWg-ub-7hn"/>
+                        </constraints>
+                        <popUpButtonCell key="cell" type="push" title="Item 1" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="VIB-0n-CV4" id="vbp-iB-XrW">
+                            <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="menu"/>
+                            <menu key="menu" id="b4y-y8-gQk">
+                                <items>
+                                    <menuItem title="Item 1" state="on" id="VIB-0n-CV4"/>
+                                    <menuItem title="Item 2" id="go2-W6-csl"/>
+                                    <menuItem title="Item 3" id="xho-pK-0ur"/>
+                                </items>
+                            </menu>
+                        </popUpButtonCell>
+                    </popUpButton>
                 </subviews>
                 <constraints>
                     <constraint firstItem="SNs-m4-1Td" firstAttribute="leading" secondItem="Pr6-0o-QOt" secondAttribute="trailing" constant="60" id="5hi-ua-731"/>
@@ -188,11 +213,13 @@
                     <constraint firstItem="3LR-dX-Mox" firstAttribute="leading" secondItem="sPV-Ds-3Qv" secondAttribute="trailing" constant="66" id="Hx7-wX-75s"/>
                     <constraint firstItem="Off-O2-Jlp" firstAttribute="top" secondItem="SNs-m4-1Td" secondAttribute="bottom" constant="3" id="SfD-fL-ogS"/>
                     <constraint firstItem="NX0-a3-btp" firstAttribute="top" secondItem="Pr6-0o-QOt" secondAttribute="bottom" constant="8" id="U1j-XS-5NW"/>
+                    <constraint firstItem="Q3y-ox-D6D" firstAttribute="leading" secondItem="EiT-Mj-1SZ" secondAttribute="leading" constant="21" id="Wj7-Gl-bB7"/>
                     <constraint firstItem="0Eb-vg-LNh" firstAttribute="leading" secondItem="EiT-Mj-1SZ" secondAttribute="leading" constant="20" id="bfh-hg-43a"/>
                     <constraint firstItem="5Ut-NX-DzX" firstAttribute="top" secondItem="C1V-6S-KWt" secondAttribute="bottom" constant="3" id="eUb-XD-Zp5"/>
                     <constraint firstItem="sPV-Ds-3Qv" firstAttribute="top" secondItem="OYL-rw-N6W" secondAttribute="bottom" constant="8" id="fAs-nO-S8b"/>
                     <constraint firstItem="Off-O2-Jlp" firstAttribute="leading" secondItem="NX0-a3-btp" secondAttribute="trailing" constant="86" id="hPS-Z1-LgF"/>
                     <constraint firstItem="OYL-rw-N6W" firstAttribute="leading" secondItem="EiT-Mj-1SZ" secondAttribute="leading" constant="21" id="jKk-Cu-5sa"/>
+                    <constraint firstItem="Q3y-ox-D6D" firstAttribute="top" secondItem="NX0-a3-btp" secondAttribute="bottom" constant="8" id="m04-Dv-zGw"/>
                     <constraint firstItem="Pr6-0o-QOt" firstAttribute="leading" secondItem="EiT-Mj-1SZ" secondAttribute="leading" constant="20" id="nkw-pO-1A6"/>
                     <constraint firstItem="C1V-6S-KWt" firstAttribute="leading" secondItem="0Eb-vg-LNh" secondAttribute="trailing" constant="8" id="tdG-Dh-YXH"/>
                     <constraint firstItem="C1V-6S-KWt" firstAttribute="top" secondItem="EiT-Mj-1SZ" secondAttribute="top" constant="20" id="tup-pN-2QJ"/>

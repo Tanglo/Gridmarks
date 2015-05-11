@@ -11,6 +11,7 @@ import LabBot
 
 class GMDocument: DRHExperimentDocument {
     let experimentData = DRHExperimentData()
+    var camera = DRHStillCamera()
 
     override init() {
         super.init()
@@ -45,7 +46,6 @@ class GMDocument: DRHExperimentDocument {
         outError.memory = NSError(domain: NSOSStatusErrorDomain, code: unimpErr, userInfo: nil)
         return false
     }
-
-
+    
 }
 
