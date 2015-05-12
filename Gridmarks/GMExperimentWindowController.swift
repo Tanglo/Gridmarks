@@ -13,7 +13,17 @@ class GMExperimentWindowController: DRHExperimenterWindowController {
     var saved = false
     var finishedExperiment = false
     @IBOutlet var cameraPopup: NSPopUpButton?
-    @IBOutlet var subjectView: GMSubjectView?
+    @IBOutlet var subjectView: LBGridView?
+    @IBOutlet var trialLabel: NSTextField?
+    @IBOutlet var conditionLabel: NSTextField?
+    @IBOutlet var landmarkLabel: NSTextField?
+    var currentTrial = -1
+    @IBOutlet var responseField: NSTextField?
+    @IBOutlet var takePictureButton: NSButton?
+    @IBOutlet var nextTrialButton: NSButton?
+    
+    let conditions = [0:"pointing", 1:"grid"]
+    let landmarks = [0:"thumbTip", 1:"thumbMCP", 2:"indexTip", 3:"indexMCP", 4:"middleTip", 5:"middleMCP", 6:"ringTip",  7:"ringMCP", 8:"littleTip", 9:"littleMCP", 10:"ulna"]
     
     override var windowNibName: String! {
         return "GMExperimenterWindow"
@@ -34,6 +44,9 @@ class GMExperimentWindowController: DRHExperimenterWindowController {
         if (document! as! GMDocument).fileURL != nil {
             saved = true
         }
+        trialLabel!.stringValue = "-"
+        conditionLabel!.stringValue = "-"
+        landmarkLabel!.stringValue = "-"
     }
     
     override func experimentIsFinished() -> Bool {
@@ -95,13 +108,22 @@ class GMExperimentWindowController: DRHExperimenterWindowController {
                     return
                 }
             }
-            startButton!.enabled = false
-            finishButton!.enabled = false
-            stopButton!.enabled = true
-            
             let newSubjWindowController = GMSubjectWindowController(screenNumber: 1, andFullScreen: true)
             (document! as! GMDocument).subjectWindowController = newSubjWindowController
             newSubjWindowController.showWindow(self)
+            newSubjWindowController.gridView?.cellSize = Size(width: 50, height: 50)
+            newSubjWindowController.gridView?.labelCells = true
+            newSubjWindowController.gridView?.needsDisplay = true
+            
+            subjectView?.cellSize = Size(width: 50, height: 50)
+            subjectView?.labelCells = true
+            subjectView?.needsDisplay = true
+            
+            startButton!.enabled = false
+            finishButton!.enabled = false
+            stopButton!.enabled = true
+            nextTrialButton!.enabled = true
+            nextTrial(self)
         } else {
             let alert = NSAlert()
             alert.messageText = "No camera is running."
@@ -150,6 +172,42 @@ class GMExperimentWindowController: DRHExperimenterWindowController {
         dataMatrix.appendVariable("response", values: responseArray)
         dataMatrix.shuffleObservations()
         (document! as! GMDocument).experimentData.experimentDataMatrix = dataMatrix
+    }
+    
+    @IBAction func nextTrial(sender: AnyObject){
+        recordCurrentTrial()
+        currentTrial++
+        let dataMatrix = (document! as! GMDocument).experimentData.experimentDataMatrix
+        if currentTrial < dataMatrix.numberOfObservations() {
+            let trialSettings = dataMatrix.observationAtIndex(currentTrial)
+            trialLabel!.stringValue = "\(currentTrial)"
+            conditionLabel!.stringValue = "\(conditions[trialSettings[0] as! Int]!)"
+            landmarkLabel!.stringValue = "\(landmarks[trialSettings[1] as! Int]!)"
+            if trialSettings[0] as! Int == 0 {  //i.e. pointing task
+                responseField!.enabled = false
+                takePictureButton!.enabled = true
+                subjectView!.gridSize = Size(width: 0, height: 0)
+                subjectView!.needsDisplay = true
+                ((document! as! GMDocument).subjectWindowController as! GMSubjectWindowController).gridView?.gridSize = Size(width: 0, height: 0)
+                ((document! as! GMDocument).subjectWindowController as! GMSubjectWindowController).gridView?.needsDisplay = true
+            } else {    //i.e. grid task
+                responseField!.enabled = true
+                takePictureButton!.enabled = false
+                subjectView!.gridSize = subjectView!.viewSize
+                subjectView!.needsDisplay = true
+                ((document! as! GMDocument).subjectWindowController as! GMSubjectWindowController).gridView?.gridSize = ((document! as! GMDocument).subjectWindowController as! GMSubjectWindowController).gridView!.viewSize
+                ((document! as! GMDocument).subjectWindowController as! GMSubjectWindowController).gridView?.needsDisplay = true
+            }
+        } else {
+            nextTrialButton!.enabled = false
+            trialLabel!.stringValue = "Done"
+            conditionLabel!.stringValue = ""
+            landmarkLabel!.stringValue = ""
+        }
+    }
+    
+    func recordCurrentTrial(){
+        window!.makeFirstResponder(nil)
     }
 }
 

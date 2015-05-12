@@ -10,6 +10,7 @@ import Cocoa
 import LabBot
 
 class GMSubjectWindowController: DRHSubjectWindowController {
+    @IBOutlet var gridView: LBGridView?
     override var windowNibName: String! {
         return "GMSubjectWindow"
     }
