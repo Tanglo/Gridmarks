@@ -15,6 +15,7 @@
                 <outlet property="finishButton" destination="OJg-r2-eza" id="Dxw-14-E1g"/>
                 <outlet property="startButton" destination="rUj-Oj-cm9" id="ChL-zI-LH8"/>
                 <outlet property="stopButton" destination="UWO-wj-p4b" id="KsY-fI-1D1"/>
+                <outlet property="subjectView" destination="ccG-8Q-Hux" id="aaY-FK-dFl"/>
                 <outlet property="window" destination="QvC-M9-y7g" id="mtF-XB-6sd"/>
             </connections>
         </customObject>
@@ -201,6 +202,9 @@
                             </menu>
                         </popUpButtonCell>
                     </popUpButton>
+                    <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ccG-8Q-Hux" customClass="GMSubjectView" customModule="Gridmarks" customModuleProvider="target">
+                        <rect key="frame" x="21" y="61" width="490" height="278"/>
+                    </customView>
                 </subviews>
                 <constraints>
                     <constraint firstItem="SNs-m4-1Td" firstAttribute="leading" secondItem="Pr6-0o-QOt" secondAttribute="trailing" constant="60" id="5hi-ua-731"/>

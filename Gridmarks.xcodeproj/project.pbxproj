@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E5B6B3C91B018BD000315651 /* GMSubjectWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B6B3C81B018BD000315651 /* GMSubjectWindowController.swift */; };
+		E5B6B3CB1B018BE700315651 /* GMSubjectWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5B6B3CA1B018BE700315651 /* GMSubjectWindow.xib */; };
+		E5B6B3CD1B018C8800315651 /* GMSubjectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B6B3CC1B018C8800315651 /* GMSubjectView.swift */; };
 		E5C03A3B1AFC6FFE00A08425 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C03A3A1AFC6FFE00A08425 /* AppDelegate.swift */; };
 		E5C03A3D1AFC6FFE00A08425 /* GMDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C03A3C1AFC6FFE00A08425 /* GMDocument.swift */; };
 		E5C03A401AFC6FFE00A08425 /* Document.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5C03A3E1AFC6FFE00A08425 /* Document.xib */; };
@@ -29,6 +32,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		E5B6B3C81B018BD000315651 /* GMSubjectWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GMSubjectWindowController.swift; sourceTree = "<group>"; };
+		E5B6B3CA1B018BE700315651 /* GMSubjectWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GMSubjectWindow.xib; sourceTree = "<group>"; };
+		E5B6B3CC1B018C8800315651 /* GMSubjectView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GMSubjectView.swift; sourceTree = "<group>"; };
 		E5C03A351AFC6FFE00A08425 /* Gridmarks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Gridmarks.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5C03A391AFC6FFE00A08425 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E5C03A3A1AFC6FFE00A08425 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -90,6 +96,9 @@
 				E5C03A3E1AFC6FFE00A08425 /* Document.xib */,
 				E5C03A5C1AFC734000A08425 /* GMExperimentWindowController.swift */,
 				E5C03A5F1AFC75B400A08425 /* GMExperimenterWindow.xib */,
+				E5B6B3C81B018BD000315651 /* GMSubjectWindowController.swift */,
+				E5B6B3CA1B018BE700315651 /* GMSubjectWindow.xib */,
+				E5B6B3CC1B018C8800315651 /* GMSubjectView.swift */,
 				E5C03A411AFC6FFE00A08425 /* Images.xcassets */,
 				E5C03A431AFC6FFE00A08425 /* MainMenu.xib */,
 				E5C03A381AFC6FFE00A08425 /* Supporting Files */,
@@ -207,6 +216,7 @@
 				E5C03A421AFC6FFE00A08425 /* Images.xcassets in Resources */,
 				E5C03A451AFC6FFE00A08425 /* MainMenu.xib in Resources */,
 				E5C03A601AFC75B400A08425 /* GMExperimenterWindow.xib in Resources */,
+				E5B6B3CB1B018BE700315651 /* GMSubjectWindow.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -240,8 +250,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E5B6B3CD1B018C8800315651 /* GMSubjectView.swift in Sources */,
 				E5C03A3D1AFC6FFE00A08425 /* GMDocument.swift in Sources */,
 				E5C03A3B1AFC6FFE00A08425 /* AppDelegate.swift in Sources */,
+				E5B6B3C91B018BD000315651 /* GMSubjectWindowController.swift in Sources */,
 				E5C03A5D1AFC734000A08425 /* GMExperimentWindowController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -449,6 +461,7 @@
 				E5C03A561AFC6FFE00A08425 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		E5C03A571AFC6FFE00A08425 /* Build configuration list for PBXNativeTarget "GridmarksTests" */ = {
 			isa = XCConfigurationList;
@@ -457,6 +470,7 @@
 				E5C03A591AFC6FFE00A08425 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

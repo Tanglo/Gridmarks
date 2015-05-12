@@ -13,6 +13,7 @@ class GMExperimentWindowController: DRHExperimenterWindowController {
     var saved = false
     var finishedExperiment = false
     @IBOutlet var cameraPopup: NSPopUpButton?
+    @IBOutlet var subjectView: GMSubjectView?
     
     override var windowNibName: String! {
         return "GMExperimenterWindow"
@@ -73,9 +74,12 @@ class GMExperimentWindowController: DRHExperimenterWindowController {
                     return
                 }
             }
-        startButton!.enabled = false
-        finishButton!.enabled = false
-        stopButton!.enabled = true
+            startButton!.enabled = false
+            finishButton!.enabled = false
+            stopButton!.enabled = true
+            let newSubjWindowController = GMSubjectWindowController(screenNumber: 1, andFullScreen: true)
+            (document! as! GMDocument).subjectWindowController = newSubjWindowController
+            newSubjWindowController.showWindow(self)
         } else {
             let alert = NSAlert()
             alert.messageText = "No camera is running."
