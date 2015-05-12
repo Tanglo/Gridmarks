@@ -12,7 +12,6 @@
 		E5B6B3CD1B018C8800315651 /* GMSubjectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B6B3CC1B018C8800315651 /* GMSubjectView.swift */; };
 		E5C03A3B1AFC6FFE00A08425 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C03A3A1AFC6FFE00A08425 /* AppDelegate.swift */; };
 		E5C03A3D1AFC6FFE00A08425 /* GMDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C03A3C1AFC6FFE00A08425 /* GMDocument.swift */; };
-		E5C03A401AFC6FFE00A08425 /* Document.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5C03A3E1AFC6FFE00A08425 /* Document.xib */; };
 		E5C03A421AFC6FFE00A08425 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E5C03A411AFC6FFE00A08425 /* Images.xcassets */; };
 		E5C03A451AFC6FFE00A08425 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5C03A431AFC6FFE00A08425 /* MainMenu.xib */; };
 		E5C03A511AFC6FFE00A08425 /* GridmarksTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C03A501AFC6FFE00A08425 /* GridmarksTests.swift */; };
@@ -39,7 +38,6 @@
 		E5C03A391AFC6FFE00A08425 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E5C03A3A1AFC6FFE00A08425 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E5C03A3C1AFC6FFE00A08425 /* GMDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GMDocument.swift; sourceTree = "<group>"; };
-		E5C03A3F1AFC6FFE00A08425 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/Document.xib; sourceTree = "<group>"; };
 		E5C03A411AFC6FFE00A08425 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		E5C03A441AFC6FFE00A08425 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		E5C03A4A1AFC6FFE00A08425 /* GridmarksTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GridmarksTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -93,7 +91,6 @@
 			children = (
 				E5C03A3A1AFC6FFE00A08425 /* AppDelegate.swift */,
 				E5C03A3C1AFC6FFE00A08425 /* GMDocument.swift */,
-				E5C03A3E1AFC6FFE00A08425 /* Document.xib */,
 				E5C03A5C1AFC734000A08425 /* GMExperimentWindowController.swift */,
 				E5C03A5F1AFC75B400A08425 /* GMExperimenterWindow.xib */,
 				E5B6B3C81B018BD000315651 /* GMSubjectWindowController.swift */,
@@ -212,7 +209,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E5C03A401AFC6FFE00A08425 /* Document.xib in Resources */,
 				E5C03A421AFC6FFE00A08425 /* Images.xcassets in Resources */,
 				E5C03A451AFC6FFE00A08425 /* MainMenu.xib in Resources */,
 				E5C03A601AFC75B400A08425 /* GMExperimenterWindow.xib in Resources */,
@@ -277,14 +273,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		E5C03A3E1AFC6FFE00A08425 /* Document.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				E5C03A3F1AFC6FFE00A08425 /* Base */,
-			);
-			name = Document.xib;
-			sourceTree = "<group>";
-		};
 		E5C03A431AFC6FFE00A08425 /* MainMenu.xib */ = {
 			isa = PBXVariantGroup;
 			children = (

@@ -154,8 +154,12 @@
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
-                    <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rUj-Oj-cm9">
+                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="rUj-Oj-cm9">
                         <rect key="frame" x="14" y="13" width="70" height="32"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="58" id="EId-Tj-wft"/>
+                            <constraint firstAttribute="height" constant="21" id="w21-AQ-Bfx"/>
+                        </constraints>
                         <buttonCell key="cell" type="push" title="Start" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="d5f-6g-a1f">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="system"/>
@@ -164,8 +168,12 @@
                             <action selector="startExperiment:" target="-2" id="GzO-OR-w7K"/>
                         </connections>
                     </button>
-                    <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UWO-wj-p4b">
+                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="UWO-wj-p4b">
                         <rect key="frame" x="84" y="13" width="70" height="32"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="21" id="LEb-2c-4uq"/>
+                            <constraint firstAttribute="width" constant="58" id="Rva-h5-0ck"/>
+                        </constraints>
                         <buttonCell key="cell" type="push" title="Stop" bezelStyle="rounded" alignment="center" enabled="NO" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="YOp-mR-DQu">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="system"/>
@@ -174,8 +182,12 @@
                             <action selector="stopExperiment:" target="-2" id="ybP-0D-zZZ"/>
                         </connections>
                     </button>
-                    <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OJg-r2-eza">
+                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="OJg-r2-eza">
                         <rect key="frame" x="513" y="13" width="77" height="32"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="65" id="aOg-qu-oUk"/>
+                            <constraint firstAttribute="height" constant="21" id="dGV-VK-fUX"/>
+                        </constraints>
                         <buttonCell key="cell" type="push" title="Finish" bezelStyle="rounded" alignment="center" enabled="NO" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="5ui-VS-xc4">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="system"/>
@@ -201,8 +213,11 @@
                                 </items>
                             </menu>
                         </popUpButtonCell>
+                        <connections>
+                            <action selector="startCamera:" target="-2" id="Fpb-0x-HPq"/>
+                        </connections>
                     </popUpButton>
-                    <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ccG-8Q-Hux" customClass="GMSubjectView" customModule="Gridmarks" customModuleProvider="target">
+                    <customView translatesAutoresizingMaskIntoConstraints="NO" id="ccG-8Q-Hux" customClass="GMSubjectView" customModule="Gridmarks" customModuleProvider="target">
                         <rect key="frame" x="21" y="61" width="490" height="278"/>
                     </customView>
                 </subviews>
@@ -213,18 +228,28 @@
                     <constraint firstItem="sPV-Ds-3Qv" firstAttribute="leading" secondItem="EiT-Mj-1SZ" secondAttribute="leading" constant="21" id="7cx-la-AQk"/>
                     <constraint firstItem="5Ut-NX-DzX" firstAttribute="leading" secondItem="OYL-rw-N6W" secondAttribute="trailing" constant="68" id="Bch-gE-OFI"/>
                     <constraint firstItem="0Eb-vg-LNh" firstAttribute="top" secondItem="EiT-Mj-1SZ" secondAttribute="top" constant="20" id="C8C-kS-pcG"/>
+                    <constraint firstAttribute="trailing" secondItem="ccG-8Q-Hux" secondAttribute="trailing" constant="93" id="DJo-8D-AHG"/>
+                    <constraint firstItem="UWO-wj-p4b" firstAttribute="leading" secondItem="rUj-Oj-cm9" secondAttribute="trailing" constant="12" id="EtS-IL-1qO"/>
+                    <constraint firstAttribute="bottom" secondItem="OJg-r2-eza" secondAttribute="bottom" constant="20" id="FtJ-Ca-WDN"/>
                     <constraint firstItem="OYL-rw-N6W" firstAttribute="top" secondItem="0Eb-vg-LNh" secondAttribute="bottom" constant="8" id="HAG-K5-jvw"/>
                     <constraint firstItem="3LR-dX-Mox" firstAttribute="leading" secondItem="sPV-Ds-3Qv" secondAttribute="trailing" constant="66" id="Hx7-wX-75s"/>
+                    <constraint firstItem="UWO-wj-p4b" firstAttribute="top" secondItem="ccG-8Q-Hux" secondAttribute="bottom" constant="20" id="KYl-pf-psA"/>
                     <constraint firstItem="Off-O2-Jlp" firstAttribute="top" secondItem="SNs-m4-1Td" secondAttribute="bottom" constant="3" id="SfD-fL-ogS"/>
                     <constraint firstItem="NX0-a3-btp" firstAttribute="top" secondItem="Pr6-0o-QOt" secondAttribute="bottom" constant="8" id="U1j-XS-5NW"/>
                     <constraint firstItem="Q3y-ox-D6D" firstAttribute="leading" secondItem="EiT-Mj-1SZ" secondAttribute="leading" constant="21" id="Wj7-Gl-bB7"/>
                     <constraint firstItem="0Eb-vg-LNh" firstAttribute="leading" secondItem="EiT-Mj-1SZ" secondAttribute="leading" constant="20" id="bfh-hg-43a"/>
                     <constraint firstItem="5Ut-NX-DzX" firstAttribute="top" secondItem="C1V-6S-KWt" secondAttribute="bottom" constant="3" id="eUb-XD-Zp5"/>
                     <constraint firstItem="sPV-Ds-3Qv" firstAttribute="top" secondItem="OYL-rw-N6W" secondAttribute="bottom" constant="8" id="fAs-nO-S8b"/>
+                    <constraint firstItem="ccG-8Q-Hux" firstAttribute="leading" secondItem="EiT-Mj-1SZ" secondAttribute="leading" constant="21" id="ffz-Oq-1ef"/>
+                    <constraint firstAttribute="bottom" secondItem="UWO-wj-p4b" secondAttribute="bottom" constant="20" id="ges-bl-Kmc"/>
                     <constraint firstItem="Off-O2-Jlp" firstAttribute="leading" secondItem="NX0-a3-btp" secondAttribute="trailing" constant="86" id="hPS-Z1-LgF"/>
+                    <constraint firstAttribute="trailing" secondItem="OJg-r2-eza" secondAttribute="trailing" constant="20" id="ivk-DE-9Xr"/>
                     <constraint firstItem="OYL-rw-N6W" firstAttribute="leading" secondItem="EiT-Mj-1SZ" secondAttribute="leading" constant="21" id="jKk-Cu-5sa"/>
+                    <constraint firstItem="rUj-Oj-cm9" firstAttribute="leading" secondItem="EiT-Mj-1SZ" secondAttribute="leading" constant="20" id="jnr-O1-rll"/>
                     <constraint firstItem="Q3y-ox-D6D" firstAttribute="top" secondItem="NX0-a3-btp" secondAttribute="bottom" constant="8" id="m04-Dv-zGw"/>
                     <constraint firstItem="Pr6-0o-QOt" firstAttribute="leading" secondItem="EiT-Mj-1SZ" secondAttribute="leading" constant="20" id="nkw-pO-1A6"/>
+                    <constraint firstAttribute="bottom" secondItem="rUj-Oj-cm9" secondAttribute="bottom" constant="20" id="qSO-QW-eC4"/>
+                    <constraint firstItem="ccG-8Q-Hux" firstAttribute="top" secondItem="Q3y-ox-D6D" secondAttribute="bottom" constant="84" id="s7p-e7-3Sm"/>
                     <constraint firstItem="C1V-6S-KWt" firstAttribute="leading" secondItem="0Eb-vg-LNh" secondAttribute="trailing" constant="8" id="tdG-Dh-YXH"/>
                     <constraint firstItem="C1V-6S-KWt" firstAttribute="top" secondItem="EiT-Mj-1SZ" secondAttribute="top" constant="20" id="tup-pN-2QJ"/>
                     <constraint firstItem="NX0-a3-btp" firstAttribute="leading" secondItem="EiT-Mj-1SZ" secondAttribute="leading" constant="21" id="v6C-CE-XSW"/>
