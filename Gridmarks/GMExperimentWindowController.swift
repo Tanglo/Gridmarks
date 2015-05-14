@@ -25,7 +25,7 @@ class GMExperimentWindowController: DRHExperimenterWindowController {
     let conditions = [0:"pointing", 1:"grid"]
     let landmarks = [0:"thumbTip", 1:"thumbMCP", 2:"indexTip", 3:"indexMCP", 4:"middleTip", 5:"middleMCP", 6:"ringTip",  7:"ringMCP", 8:"littleTip", 9:"littleMCP", 10:"ulna"]
     
-    var pointingImage: NSImage?
+    var pointingImage: NSBitmapImageRep?
     
     override var windowNibName: String! {
         return "GMExperimenterWindow"
@@ -282,13 +282,34 @@ class GMExperimentWindowController: DRHExperimenterWindowController {
                 //use attachments
             }
             let captureImageData = AVCaptureStillImageOutput .jpegStillImageNSDataRepresentation(sampleBuffer)
-            self.pointingImage = NSImage(data: captureImageData)
+            self.pointingImage = NSBitmapImageRep(data: captureImageData)
             })
         takePictureButton!.enabled = false
     }
     
     func exportData() {
-        
+        let dataMatrix = (document! as! GMDocument).experimentData.experimentDataMatrix
+        var dataString = "condition, landmark, response\n"
+        let numObs = dataMatrix.numberOfObservations()
+        for i in 0..<numObs {
+            let observation = dataMatrix.observationAtIndex(i)
+            dataString += "\(observation[0]), \(observation[1]), "
+            if (observation[0] as! Int) == 0 {    //pointing task
+                if observation[2] is NSBitmapImageRep {
+                    let pngData = (observation[2] as! NSBitmapImageRep).representationUsingType(NSBitmapImageFileType.NSPNGFileType, properties: [NSObject: AnyObject]())
+                    let fileName = "\((document! as! GMDocument).experimentData.experimentSubject)_Trial-\(i).png"
+                    let filePath = "\((document! as! GMDocument).experimentData.experimentPath)/\((document! as! GMDocument).experimentData.experimentSubject) images/\(fileName)"
+                    pngData!.writeToFile(filePath, atomically: true)
+                    dataString += "\(fileName)"
+                }
+            } else {                    //grid task
+                if observation[2] is LBPoint {
+                    dataString += "\(Int((observation[2] as! LBPoint).x)), \(Int((observation[2] as! LBPoint).y))"
+                }
+            }
+            dataString += "\n"
+        }
+        println("\(dataString)")
     }
 }
 
