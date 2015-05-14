@@ -25,6 +25,8 @@ class GMExperimentWindowController: DRHExperimenterWindowController {
     let conditions = [0:"pointing", 1:"grid"]
     let landmarks = [0:"thumbTip", 1:"thumbMCP", 2:"indexTip", 3:"indexMCP", 4:"middleTip", 5:"middleMCP", 6:"ringTip",  7:"ringMCP", 8:"littleTip", 9:"littleMCP", 10:"ulna"]
     
+    var pointingImage: NSImage?
+    
     override var windowNibName: String! {
         return "GMExperimenterWindow"
     }
@@ -98,12 +100,6 @@ class GMExperimentWindowController: DRHExperimenterWindowController {
                     (document! as! GMDocument).experimentData.createExperimentSubdirectory((document! as! GMDocument).experimentData.experimentSession + " images")
                     
                     saved = true
-                    experimentNameField().enabled = false
-                    experimentSubjectField().enabled = false
-                    experimentSessionField().enabled = false
-                    experimentFilenameStemField().enabled = false
-                    experimentDatePicker().enabled = false
-                    cameraPopup!.enabled = false
                 } else {
                     return
                 }
@@ -111,13 +107,21 @@ class GMExperimentWindowController: DRHExperimenterWindowController {
             let newSubjWindowController = GMSubjectWindowController(screenNumber: 1, andFullScreen: true)
             (document! as! GMDocument).subjectWindowController = newSubjWindowController
             newSubjWindowController.showWindow(self)
-            newSubjWindowController.gridView?.cellSize = Size(width: 50, height: 50)
+            newSubjWindowController.gridView?.cellSize = LBSize(width: 50, height: 50)
             newSubjWindowController.gridView?.labelCells = true
+            newSubjWindowController.gridView?.shuffleLabels = true
             newSubjWindowController.gridView?.needsDisplay = true
             
-            subjectView?.cellSize = Size(width: 50, height: 50)
+            subjectView?.cellSize = LBSize(width: 50, height: 50)
             subjectView?.labelCells = true
             subjectView?.needsDisplay = true
+            
+            experimentNameField().enabled = false
+            experimentSubjectField().enabled = false
+            experimentSessionField().enabled = false
+            experimentFilenameStemField().enabled = false
+            experimentDatePicker().enabled = false
+            cameraPopup!.enabled = false
             
             startButton!.enabled = false
             finishButton!.enabled = false
@@ -143,6 +147,8 @@ class GMExperimentWindowController: DRHExperimenterWindowController {
     
     @IBAction func finishExperiment(sender: AnyObject){
         println("Finishing experiment")
+        
+        exportData()
         
         startButton!.enabled = false
         finishButton!.enabled = false
@@ -175,39 +181,114 @@ class GMExperimentWindowController: DRHExperimenterWindowController {
     }
     
     @IBAction func nextTrial(sender: AnyObject){
-        recordCurrentTrial()
-        currentTrial++
-        let dataMatrix = (document! as! GMDocument).experimentData.experimentDataMatrix
-        if currentTrial < dataMatrix.numberOfObservations() {
-            let trialSettings = dataMatrix.observationAtIndex(currentTrial)
-            trialLabel!.stringValue = "\(currentTrial)"
-            conditionLabel!.stringValue = "\(conditions[trialSettings[0] as! Int]!)"
-            landmarkLabel!.stringValue = "\(landmarks[trialSettings[1] as! Int]!)"
-            if trialSettings[0] as! Int == 0 {  //i.e. pointing task
-                responseField!.enabled = false
-                takePictureButton!.enabled = true
-                subjectView!.gridSize = Size(width: 0, height: 0)
-                subjectView!.needsDisplay = true
-                ((document! as! GMDocument).subjectWindowController as! GMSubjectWindowController).gridView?.gridSize = Size(width: 0, height: 0)
-                ((document! as! GMDocument).subjectWindowController as! GMSubjectWindowController).gridView?.needsDisplay = true
-            } else {    //i.e. grid task
-                responseField!.enabled = true
-                takePictureButton!.enabled = false
-                subjectView!.gridSize = subjectView!.viewSize
-                subjectView!.needsDisplay = true
-                ((document! as! GMDocument).subjectWindowController as! GMSubjectWindowController).gridView?.gridSize = ((document! as! GMDocument).subjectWindowController as! GMSubjectWindowController).gridView!.viewSize
-                ((document! as! GMDocument).subjectWindowController as! GMSubjectWindowController).gridView?.needsDisplay = true
+        if recordCurrentTrial() || sender is GMExperimentWindowController {
+            
+            currentTrial++
+            let dataMatrix = (document! as! GMDocument).experimentData.experimentDataMatrix
+            if currentTrial < dataMatrix.numberOfObservations() {
+                let trialSettings = dataMatrix.observationAtIndex(currentTrial)
+                trialLabel!.stringValue = "\(currentTrial)"
+                conditionLabel!.stringValue = "\(conditions[trialSettings[0] as! Int]!)"
+                landmarkLabel!.stringValue = "\(landmarks[trialSettings[1] as! Int]!)"
+                if trialSettings[0] as! Int == 0 {  //i.e. pointing task
+                    responseField!.enabled = false
+                    takePictureButton!.enabled = true
+                    subjectView!.gridSize = LBSize(width: 0, height: 0)
+                    subjectView!.needsDisplay = true
+                    ((document! as! GMDocument).subjectWindowController as! GMSubjectWindowController).gridView?.gridSize = LBSize(width: 0, height: 0)
+                    ((document! as! GMDocument).subjectWindowController as! GMSubjectWindowController).gridView?.needsDisplay = true
+                } else {    //i.e. grid task
+                    responseField!.enabled = true
+                    takePictureButton!.enabled = false
+                    subjectView!.gridSize = subjectView!.viewSize
+                    subjectView!.needsDisplay = true
+                    ((document! as! GMDocument).subjectWindowController as! GMSubjectWindowController).gridView?.gridSize = ((document! as! GMDocument).subjectWindowController as! GMSubjectWindowController).gridView!.viewSize
+                    ((document! as! GMDocument).subjectWindowController as! GMSubjectWindowController).gridView?.needsDisplay = true
+                    window?.makeFirstResponder(responseField)
+                }
+            } else {
+                nextTrialButton!.enabled = false
+                trialLabel!.stringValue = "Done"
+                conditionLabel!.stringValue = ""
+                landmarkLabel!.stringValue = ""
             }
-        } else {
-            nextTrialButton!.enabled = false
-            trialLabel!.stringValue = "Done"
-            conditionLabel!.stringValue = ""
-            landmarkLabel!.stringValue = ""
         }
     }
-    
-    func recordCurrentTrial(){
+
+
+    func recordCurrentTrial() -> Bool{
         window!.makeFirstResponder(nil)
+        if currentTrial < 0 {
+            return false
+        }
+        let trialData = (document! as! GMDocument).experimentData.experimentDataMatrix.observationAtIndex(currentTrial)
+        var newValue: AnyObject = Double.NaN
+        if trialData[0] as! Int == 0 {  //point task
+            if pointingImage != nil {
+                newValue = pointingImage!
+                pointingImage = nil
+            } else {
+                let alert = NSAlert()
+                alert.messageText = "No image to record"
+                alert.addButtonWithTitle("Whoops!")
+                alert.informativeText = "There is no image ready to record, perhaps you forgot to push the \"Take picture\' button"
+                alert.runModal()
+                return false
+            }
+        } else {
+            let response = responseField!.integerValue
+            if response > 0{
+                let (x,y) = ((document! as! GMDocument).subjectWindowController as! GMSubjectWindowController).gridView!.gridReferenceOfLabel(response)
+                if x != nil {
+                    newValue = LBPoint(point:(x!,y!))
+                    responseField!.stringValue = ""
+                } else {
+                    let alert = NSAlert()
+                    alert.messageText = "Your response is too big"
+                    alert.addButtonWithTitle("Whoops!")
+                    alert.informativeText = "The response you typed in is not on the grid."
+                    alert.runModal()
+                    return false
+                }
+            } else {
+                let alert = NSAlert()
+                alert.messageText = "No response to record"
+                alert.addButtonWithTitle("Whoops!")
+                alert.informativeText = "There is no response ready to record, perhaps you forgot to type it in the box"
+                alert.runModal()
+                return false
+            }
+        }
+        (document! as! GMDocument).experimentData.experimentDataMatrix.changeDataPoint("response", observation: currentTrial, newValue: newValue)
+        document!.saveDocument(self)
+        return true
+    }
+    
+    @IBAction func takePicture(sender: AnyObject){
+        var videoConnection: AVCaptureConnection?
+        let camera = (document! as! GMDocument).camera
+        for captureConnection in camera.stillImageOutput().connections {
+            for port in (captureConnection as! AVCaptureConnection).inputPorts {
+                if port.mediaType == AVMediaTypeVideo {
+                    videoConnection = captureConnection as? AVCaptureConnection
+                }
+            }
+            if videoConnection != nil {break}
+        }
+        
+        camera.stillImageOutput().captureStillImageAsynchronouslyFromConnection(videoConnection!, completionHandler: { (sampleBuffer: CMSampleBuffer!, error: NSError!) -> Void in
+            let exifAttachments = CMGetAttachment(sampleBuffer, kCGImagePropertyExifDictionary, nil)
+            if (exifAttachments != nil) {
+                //use attachments
+            }
+            let captureImageData = AVCaptureStillImageOutput .jpegStillImageNSDataRepresentation(sampleBuffer)
+            self.pointingImage = NSImage(data: captureImageData)
+            })
+        takePictureButton!.enabled = false
+    }
+    
+    func exportData() {
+        
     }
 }
 

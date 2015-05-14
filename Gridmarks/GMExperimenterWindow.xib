@@ -317,6 +317,9 @@
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="system"/>
                         </buttonCell>
+                        <connections>
+                            <action selector="takePicture:" target="-2" id="beW-jD-KuS"/>
+                        </connections>
                     </button>
                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="xdM-en-0Pq">
                         <rect key="frame" x="246" y="339" width="96" height="32"/>
@@ -343,6 +346,9 @@
                             <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
+                        <connections>
+                            <action selector="nextTrial:" target="-2" id="bor-Oi-4mh"/>
+                        </connections>
                     </textField>
                 </subviews>
                 <constraints>
