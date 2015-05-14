@@ -68,9 +68,9 @@ class GMExperimentWindowController: DRHExperimenterWindowController {
                 initialiseExperiment()
                 let fileDate = DRHFileDate(date: (document! as! GMDocument).experimentData.experimentDate)
                 var fileName = "\((document! as! GMDocument).experimentData.experimentFilenameStem)_"
-                fileName += "\((document! as! GMDocument).experimentData.experimentSubject)"
-                fileName += "\((document! as! GMDocument).experimentData.experimentSession)"
-                fileName += "_\(fileDate.dateString())"
+                fileName += "\((document! as! GMDocument).experimentData.experimentSubject)_"
+                fileName += "\((document! as! GMDocument).experimentData.experimentSession)_"
+                fileName += "\(fileDate.dateString())"
                 let savePanel = NSSavePanel()
                 savePanel.nameFieldStringValue = fileName
                 savePanel.directoryURL = NSURL(fileURLWithPath: (document! as! GMDocument).experimentData.experimentPath)
@@ -309,7 +309,20 @@ class GMExperimentWindowController: DRHExperimenterWindowController {
             }
             dataString += "\n"
         }
-        println("\(dataString)")
+        var filePath = "\((document! as! GMDocument).experimentData.experimentPath)/"
+        filePath += "\((document! as! GMDocument).experimentData.experimentFilenameStem)_"
+        filePath += "\((document! as! GMDocument).experimentData.experimentSubject)_"
+        filePath += "\((document! as! GMDocument).experimentData.experimentSession)_"
+        let fileDate = DRHFileDate(date: (document! as! GMDocument).experimentData.experimentDate)
+        filePath += "\(fileDate.dateString())"
+        filePath += "_data.csv"
+        println("\(filePath)")
+        var writeError: NSError?
+        if !dataString.writeToFile(filePath, atomically: true, encoding: NSUnicodeStringEncoding, error: &writeError) {
+            let errorAlert = NSAlert(error: writeError!)
+            errorAlert.runModal()
+        }
+        
     }
 }
 
