@@ -57,7 +57,7 @@ class GMExperimentWindowController: DRHExperimenterWindowController {
 
     @IBAction func startExperiment(sender: AnyObject){
         sender.window.makeFirstResponder(nil)
-        println("Starting experiment")
+//        println("Starting experiment")
         if cameraPopup!.selectedItem != nil {
             if !saved {
                 (document! as! GMDocument).experimentData.experimentName = experimentNameField().stringValue
@@ -78,15 +78,15 @@ class GMExperimentWindowController: DRHExperimenterWindowController {
                 let result = savePanel.runModal()
                 if result == NSModalResponseOK {
                     //save the gridmarks document
-                    println("\(savePanel.URL!.path!)")
+//                    println("\(savePanel.URL!.path!)")
                     let saveURL = NSURL(fileURLWithPath: savePanel.URL!.path! + ".gridmarks")!
-                    println("\(saveURL)")
+//                    println("\(saveURL)")
                     (document! as! GMDocument).saveToURL(saveURL, ofType: "com.LDW.gridmarks", forSaveOperation: NSSaveOperationType.SaveAsOperation, completionHandler: {(error:NSError!) -> Void in
                         if error != nil {
                             println("\(error.description)")
-                        } else {
+                        } /*else {
                             println("Saved")
-                        }
+                        }*/
                         })
                     
                     //write the experimentData as text
@@ -107,9 +107,14 @@ class GMExperimentWindowController: DRHExperimenterWindowController {
             let newSubjWindowController = GMSubjectWindowController(screenNumber: 1, andFullScreen: true)
             (document! as! GMDocument).subjectWindowController = newSubjWindowController
             newSubjWindowController.showWindow(self)
-            newSubjWindowController.gridView?.cellSize = LBSize(width: 50, height: 50)
+            newSubjWindowController.gridView?.cellSize = LBSize(width: 20.0, height: 20.0)
+            newSubjWindowController.gridView?.labelSize = 10.0
+            newSubjWindowController.gridView?.lineWidth = 0.5
             newSubjWindowController.gridView?.labelCells = true
             newSubjWindowController.gridView?.shuffleLabels = true
+            newSubjWindowController.gridView?.flipVertically = true
+            newSubjWindowController.gridView?.flipHorizontally = true
+            newSubjWindowController.gridView?.hexLabels = true
             newSubjWindowController.gridView?.needsDisplay = true
             
             subjectView?.cellSize = LBSize(width: 50, height: 50)
@@ -138,7 +143,7 @@ class GMExperimentWindowController: DRHExperimenterWindowController {
     }
     
     @IBAction func stopExperiment(sender: AnyObject){
-        println("Stopping experiment")
+//        println("Stopping experiment")
         
         stopButton!.enabled = false
         startButton!.enabled = true
@@ -146,7 +151,7 @@ class GMExperimentWindowController: DRHExperimenterWindowController {
     }
     
     @IBAction func finishExperiment(sender: AnyObject){
-        println("Finishing experiment")
+//        println("Finishing experiment")
         
         exportData()
         
@@ -202,7 +207,7 @@ class GMExperimentWindowController: DRHExperimenterWindowController {
                     takePictureButton!.enabled = false
                     subjectView!.gridSize = subjectView!.viewSize
                     subjectView!.needsDisplay = true
-                    ((document! as! GMDocument).subjectWindowController as! GMSubjectWindowController).gridView?.gridSize = ((document! as! GMDocument).subjectWindowController as! GMSubjectWindowController).gridView!.viewSize
+                    ((document! as! GMDocument).subjectWindowController as! GMSubjectWindowController).gridView?.gridSize = LBSize(width: 1600, height: 1020)
                     ((document! as! GMDocument).subjectWindowController as! GMSubjectWindowController).gridView?.needsDisplay = true
                     window?.makeFirstResponder(responseField)
                 }
@@ -236,9 +241,10 @@ class GMExperimentWindowController: DRHExperimenterWindowController {
                 return false
             }
         } else {
-            let response = responseField!.integerValue
-            if response > 0{
+            let response = responseField!.stringValue
+            if response != ""{
                 let (x,y) = ((document! as! GMDocument).subjectWindowController as! GMSubjectWindowController).gridView!.gridReferenceOfLabel(response)
+                println("\(x),\(y)")
                 if x != nil {
                     newValue = LBPoint(point:(x!,y!))
                     responseField!.stringValue = ""

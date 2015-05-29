@@ -11,6 +11,11 @@ import LabBot
 
 @NSApplicationMain
 class AppDelegate: LBExperimentDelegate {
+    
+    override func applicationDidFinishLaunching(aNotification: NSNotification) {
+        NSApplication.sharedApplication().presentationOptions = NSApplicationPresentationOptions.HideMenuBar | NSApplicationPresentationOptions.HideDock
+
+    }
 
 }
 
