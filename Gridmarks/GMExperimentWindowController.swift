@@ -114,6 +114,8 @@ class GMExperimentWindowController: DRHExperimenterWindowController {
             newSubjWindowController.gridView?.shuffleLabels = true
             newSubjWindowController.gridView?.flipVertically = true
             newSubjWindowController.gridView?.flipHorizontally = true
+            newSubjWindowController.gridView?.centreHorizontally = false
+            newSubjWindowController.gridView?.gridRect.origin.x = 260.0
             newSubjWindowController.gridView?.hexLabels = true
             newSubjWindowController.gridView?.needsDisplay = true
             
@@ -198,16 +200,18 @@ class GMExperimentWindowController: DRHExperimenterWindowController {
                 if trialSettings[0] as! Int == 0 {  //i.e. pointing task
                     responseField!.enabled = false
                     takePictureButton!.enabled = true
-                    subjectView!.gridSize = LBSize(width: 0, height: 0)
+                    subjectView!.gridRect.size = NSSize(width: 0, height: 0)
                     subjectView!.needsDisplay = true
-                    ((document! as! GMDocument).subjectWindowController as! GMSubjectWindowController).gridView?.gridSize = LBSize(width: 0, height: 0)
+//                    ((document! as! GMDocument).subjectWindowController as! GMSubjectWindowController).gridView?.gridRect.size = NSSize(width: 0, height: 0)
+                    ((document! as! GMDocument).subjectWindowController as! GMSubjectWindowController).gridView?.blank = true
                     ((document! as! GMDocument).subjectWindowController as! GMSubjectWindowController).gridView?.needsDisplay = true
                 } else {    //i.e. grid task
                     responseField!.enabled = true
                     takePictureButton!.enabled = false
-                    subjectView!.gridSize = subjectView!.viewSize
+                    subjectView!.gridRect.size = NSSize(width: subjectView!.viewSize.width, height: subjectView!.viewSize.height)
                     subjectView!.needsDisplay = true
-                    ((document! as! GMDocument).subjectWindowController as! GMSubjectWindowController).gridView?.gridSize = LBSize(width: 1600, height: 1020)
+                    ((document! as! GMDocument).subjectWindowController as! GMSubjectWindowController).gridView?.blank = false
+                    ((document! as! GMDocument).subjectWindowController as! GMSubjectWindowController).gridView?.gridRect.size = NSSize(width: 1500, height: 1060)
                     ((document! as! GMDocument).subjectWindowController as! GMSubjectWindowController).gridView?.needsDisplay = true
                     window?.makeFirstResponder(responseField)
                 }
@@ -242,6 +246,7 @@ class GMExperimentWindowController: DRHExperimenterWindowController {
             }
         } else {
             let response = responseField!.stringValue
+//            println("response: \(response)")
             if response != ""{
                 let (x,y) = ((document! as! GMDocument).subjectWindowController as! GMSubjectWindowController).gridView!.gridReferenceOfLabel(response)
                 println("\(x),\(y)")
@@ -304,8 +309,7 @@ class GMExperimentWindowController: DRHExperimenterWindowController {
                 if observation[2] is NSBitmapImageRep {
                     let pngData = (observation[2] as! NSBitmapImageRep).representationUsingType(NSBitmapImageFileType.NSPNGFileType, properties: [NSObject: AnyObject]())
                     let fileName = "\((document! as! GMDocument).experimentData.experimentSubject)_Trial-\(i).png"
-                    let filePath = "\((document! as! GMDocument).experimentData.experimentPath)/\((document! as! GMDocument).experimentData.experimentSubject) images/\(fileName)"
-                    pngData!.writeToFile(filePath, atomically: true)
+                    let filePath = "\((document! as! GMDocument).experimentData.experimentPath)/\((document! as! GMDocument).experimentData.experimentFilenameStem) images/\(fileName)"
                     dataString += "\(fileName)"
                 }
             } else {                    //grid task
