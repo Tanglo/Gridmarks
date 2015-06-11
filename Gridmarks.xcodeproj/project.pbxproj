@@ -7,6 +7,29 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E51AC5811B29166600FA2D56 /* gridIndexMCPAudio.m4a in Resources */ = {isa = PBXBuildFile; fileRef = E51AC56A1B29166600FA2D56 /* gridIndexMCPAudio.m4a */; };
+		E51AC5821B29166600FA2D56 /* gridIndexTipAudio.m4a in Resources */ = {isa = PBXBuildFile; fileRef = E51AC56B1B29166600FA2D56 /* gridIndexTipAudio.m4a */; };
+		E51AC5831B29166600FA2D56 /* gridLittleMCPAudio.m4a in Resources */ = {isa = PBXBuildFile; fileRef = E51AC56C1B29166600FA2D56 /* gridLittleMCPAudio.m4a */; };
+		E51AC5841B29166600FA2D56 /* gridLittleTipAudio.m4a in Resources */ = {isa = PBXBuildFile; fileRef = E51AC56D1B29166600FA2D56 /* gridLittleTipAudio.m4a */; };
+		E51AC5851B29166600FA2D56 /* gridMiddleMCPAudio.m4a in Resources */ = {isa = PBXBuildFile; fileRef = E51AC56E1B29166600FA2D56 /* gridMiddleMCPAudio.m4a */; };
+		E51AC5861B29166600FA2D56 /* gridMiddleTipAudio.m4a in Resources */ = {isa = PBXBuildFile; fileRef = E51AC56F1B29166600FA2D56 /* gridMiddleTipAudio.m4a */; };
+		E51AC5871B29166600FA2D56 /* gridRingMCPAudio.m4a in Resources */ = {isa = PBXBuildFile; fileRef = E51AC5701B29166600FA2D56 /* gridRingMCPAudio.m4a */; };
+		E51AC5881B29166600FA2D56 /* gridRingTipAudio.m4a in Resources */ = {isa = PBXBuildFile; fileRef = E51AC5711B29166600FA2D56 /* gridRingTipAudio.m4a */; };
+		E51AC5891B29166600FA2D56 /* gridThumbMCPAudio.m4a in Resources */ = {isa = PBXBuildFile; fileRef = E51AC5721B29166600FA2D56 /* gridThumbMCPAudio.m4a */; };
+		E51AC58A1B29166600FA2D56 /* gridThumbTipAudio.m4a in Resources */ = {isa = PBXBuildFile; fileRef = E51AC5731B29166600FA2D56 /* gridThumbTipAudio.m4a */; };
+		E51AC58B1B29166600FA2D56 /* gridUlnaAudio.m4a in Resources */ = {isa = PBXBuildFile; fileRef = E51AC5741B29166600FA2D56 /* gridUlnaAudio.m4a */; };
+		E51AC58C1B29166600FA2D56 /* handInLapAudio.m4a in Resources */ = {isa = PBXBuildFile; fileRef = E51AC5751B29166600FA2D56 /* handInLapAudio.m4a */; };
+		E51AC58D1B29166600FA2D56 /* pointIndexMCPAudio.m4a in Resources */ = {isa = PBXBuildFile; fileRef = E51AC5761B29166600FA2D56 /* pointIndexMCPAudio.m4a */; };
+		E51AC58E1B29166600FA2D56 /* pointIndexTipAudio.m4a in Resources */ = {isa = PBXBuildFile; fileRef = E51AC5771B29166600FA2D56 /* pointIndexTipAudio.m4a */; };
+		E51AC58F1B29166600FA2D56 /* pointLittleMCPAudio.m4a in Resources */ = {isa = PBXBuildFile; fileRef = E51AC5781B29166600FA2D56 /* pointLittleMCPAudio.m4a */; };
+		E51AC5901B29166600FA2D56 /* pointLittleTipAudio.m4a in Resources */ = {isa = PBXBuildFile; fileRef = E51AC5791B29166600FA2D56 /* pointLittleTipAudio.m4a */; };
+		E51AC5911B29166600FA2D56 /* pointMiddleMCPAudio.m4a in Resources */ = {isa = PBXBuildFile; fileRef = E51AC57A1B29166600FA2D56 /* pointMiddleMCPAudio.m4a */; };
+		E51AC5921B29166600FA2D56 /* pointMiddleTipAudio.m4a in Resources */ = {isa = PBXBuildFile; fileRef = E51AC57B1B29166600FA2D56 /* pointMiddleTipAudio.m4a */; };
+		E51AC5931B29166600FA2D56 /* pointRingMCPAudio.m4a in Resources */ = {isa = PBXBuildFile; fileRef = E51AC57C1B29166600FA2D56 /* pointRingMCPAudio.m4a */; };
+		E51AC5941B29166600FA2D56 /* pointRingTipAudio.m4a in Resources */ = {isa = PBXBuildFile; fileRef = E51AC57D1B29166600FA2D56 /* pointRingTipAudio.m4a */; };
+		E51AC5951B29166600FA2D56 /* pointThumbMCPAudio.m4a in Resources */ = {isa = PBXBuildFile; fileRef = E51AC57E1B29166600FA2D56 /* pointThumbMCPAudio.m4a */; };
+		E51AC5961B29166600FA2D56 /* pointThumbTipAudio.m4a in Resources */ = {isa = PBXBuildFile; fileRef = E51AC57F1B29166600FA2D56 /* pointThumbTipAudio.m4a */; };
+		E51AC5971B29166600FA2D56 /* pointUlnaAudio.m4a in Resources */ = {isa = PBXBuildFile; fileRef = E51AC5801B29166600FA2D56 /* pointUlnaAudio.m4a */; };
 		E5B6B3C91B018BD000315651 /* GMSubjectWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B6B3C81B018BD000315651 /* GMSubjectWindowController.swift */; };
 		E5B6B3CB1B018BE700315651 /* GMSubjectWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5B6B3CA1B018BE700315651 /* GMSubjectWindow.xib */; };
 		E5B6B3CD1B018C8800315651 /* GMSubjectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B6B3CC1B018C8800315651 /* GMSubjectView.swift */; };
@@ -31,6 +54,29 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		E51AC56A1B29166600FA2D56 /* gridIndexMCPAudio.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; name = gridIndexMCPAudio.m4a; path = Gridmarks/Audio/gridIndexMCPAudio.m4a; sourceTree = "<group>"; };
+		E51AC56B1B29166600FA2D56 /* gridIndexTipAudio.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; name = gridIndexTipAudio.m4a; path = Gridmarks/Audio/gridIndexTipAudio.m4a; sourceTree = "<group>"; };
+		E51AC56C1B29166600FA2D56 /* gridLittleMCPAudio.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; name = gridLittleMCPAudio.m4a; path = Gridmarks/Audio/gridLittleMCPAudio.m4a; sourceTree = "<group>"; };
+		E51AC56D1B29166600FA2D56 /* gridLittleTipAudio.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; name = gridLittleTipAudio.m4a; path = Gridmarks/Audio/gridLittleTipAudio.m4a; sourceTree = "<group>"; };
+		E51AC56E1B29166600FA2D56 /* gridMiddleMCPAudio.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; name = gridMiddleMCPAudio.m4a; path = Gridmarks/Audio/gridMiddleMCPAudio.m4a; sourceTree = "<group>"; };
+		E51AC56F1B29166600FA2D56 /* gridMiddleTipAudio.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; name = gridMiddleTipAudio.m4a; path = Gridmarks/Audio/gridMiddleTipAudio.m4a; sourceTree = "<group>"; };
+		E51AC5701B29166600FA2D56 /* gridRingMCPAudio.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; name = gridRingMCPAudio.m4a; path = Gridmarks/Audio/gridRingMCPAudio.m4a; sourceTree = "<group>"; };
+		E51AC5711B29166600FA2D56 /* gridRingTipAudio.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; name = gridRingTipAudio.m4a; path = Gridmarks/Audio/gridRingTipAudio.m4a; sourceTree = "<group>"; };
+		E51AC5721B29166600FA2D56 /* gridThumbMCPAudio.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; name = gridThumbMCPAudio.m4a; path = Gridmarks/Audio/gridThumbMCPAudio.m4a; sourceTree = "<group>"; };
+		E51AC5731B29166600FA2D56 /* gridThumbTipAudio.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; name = gridThumbTipAudio.m4a; path = Gridmarks/Audio/gridThumbTipAudio.m4a; sourceTree = "<group>"; };
+		E51AC5741B29166600FA2D56 /* gridUlnaAudio.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; name = gridUlnaAudio.m4a; path = Gridmarks/Audio/gridUlnaAudio.m4a; sourceTree = "<group>"; };
+		E51AC5751B29166600FA2D56 /* handInLapAudio.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; name = handInLapAudio.m4a; path = Gridmarks/Audio/handInLapAudio.m4a; sourceTree = "<group>"; };
+		E51AC5761B29166600FA2D56 /* pointIndexMCPAudio.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; name = pointIndexMCPAudio.m4a; path = Gridmarks/Audio/pointIndexMCPAudio.m4a; sourceTree = "<group>"; };
+		E51AC5771B29166600FA2D56 /* pointIndexTipAudio.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; name = pointIndexTipAudio.m4a; path = Gridmarks/Audio/pointIndexTipAudio.m4a; sourceTree = "<group>"; };
+		E51AC5781B29166600FA2D56 /* pointLittleMCPAudio.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; name = pointLittleMCPAudio.m4a; path = Gridmarks/Audio/pointLittleMCPAudio.m4a; sourceTree = "<group>"; };
+		E51AC5791B29166600FA2D56 /* pointLittleTipAudio.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; name = pointLittleTipAudio.m4a; path = Gridmarks/Audio/pointLittleTipAudio.m4a; sourceTree = "<group>"; };
+		E51AC57A1B29166600FA2D56 /* pointMiddleMCPAudio.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; name = pointMiddleMCPAudio.m4a; path = Gridmarks/Audio/pointMiddleMCPAudio.m4a; sourceTree = "<group>"; };
+		E51AC57B1B29166600FA2D56 /* pointMiddleTipAudio.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; name = pointMiddleTipAudio.m4a; path = Gridmarks/Audio/pointMiddleTipAudio.m4a; sourceTree = "<group>"; };
+		E51AC57C1B29166600FA2D56 /* pointRingMCPAudio.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; name = pointRingMCPAudio.m4a; path = Gridmarks/Audio/pointRingMCPAudio.m4a; sourceTree = "<group>"; };
+		E51AC57D1B29166600FA2D56 /* pointRingTipAudio.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; name = pointRingTipAudio.m4a; path = Gridmarks/Audio/pointRingTipAudio.m4a; sourceTree = "<group>"; };
+		E51AC57E1B29166600FA2D56 /* pointThumbMCPAudio.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; name = pointThumbMCPAudio.m4a; path = Gridmarks/Audio/pointThumbMCPAudio.m4a; sourceTree = "<group>"; };
+		E51AC57F1B29166600FA2D56 /* pointThumbTipAudio.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; name = pointThumbTipAudio.m4a; path = Gridmarks/Audio/pointThumbTipAudio.m4a; sourceTree = "<group>"; };
+		E51AC5801B29166600FA2D56 /* pointUlnaAudio.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; name = pointUlnaAudio.m4a; path = Gridmarks/Audio/pointUlnaAudio.m4a; sourceTree = "<group>"; };
 		E5B6B3C81B018BD000315651 /* GMSubjectWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GMSubjectWindowController.swift; sourceTree = "<group>"; };
 		E5B6B3CA1B018BE700315651 /* GMSubjectWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GMSubjectWindow.xib; sourceTree = "<group>"; };
 		E5B6B3CC1B018C8800315651 /* GMSubjectView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GMSubjectView.swift; sourceTree = "<group>"; };
@@ -67,6 +113,37 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E51AC5981B29167400FA2D56 /* Audio */ = {
+			isa = PBXGroup;
+			children = (
+				E51AC56A1B29166600FA2D56 /* gridIndexMCPAudio.m4a */,
+				E51AC56B1B29166600FA2D56 /* gridIndexTipAudio.m4a */,
+				E51AC56C1B29166600FA2D56 /* gridLittleMCPAudio.m4a */,
+				E51AC56D1B29166600FA2D56 /* gridLittleTipAudio.m4a */,
+				E51AC56E1B29166600FA2D56 /* gridMiddleMCPAudio.m4a */,
+				E51AC56F1B29166600FA2D56 /* gridMiddleTipAudio.m4a */,
+				E51AC5701B29166600FA2D56 /* gridRingMCPAudio.m4a */,
+				E51AC5711B29166600FA2D56 /* gridRingTipAudio.m4a */,
+				E51AC5721B29166600FA2D56 /* gridThumbMCPAudio.m4a */,
+				E51AC5731B29166600FA2D56 /* gridThumbTipAudio.m4a */,
+				E51AC5741B29166600FA2D56 /* gridUlnaAudio.m4a */,
+				E51AC5751B29166600FA2D56 /* handInLapAudio.m4a */,
+				E51AC5761B29166600FA2D56 /* pointIndexMCPAudio.m4a */,
+				E51AC5771B29166600FA2D56 /* pointIndexTipAudio.m4a */,
+				E51AC5781B29166600FA2D56 /* pointLittleMCPAudio.m4a */,
+				E51AC5791B29166600FA2D56 /* pointLittleTipAudio.m4a */,
+				E51AC57A1B29166600FA2D56 /* pointMiddleMCPAudio.m4a */,
+				E51AC57B1B29166600FA2D56 /* pointMiddleTipAudio.m4a */,
+				E51AC57C1B29166600FA2D56 /* pointRingMCPAudio.m4a */,
+				E51AC57D1B29166600FA2D56 /* pointRingTipAudio.m4a */,
+				E51AC57E1B29166600FA2D56 /* pointThumbMCPAudio.m4a */,
+				E51AC57F1B29166600FA2D56 /* pointThumbTipAudio.m4a */,
+				E51AC5801B29166600FA2D56 /* pointUlnaAudio.m4a */,
+			);
+			name = Audio;
+			path = ..;
+			sourceTree = "<group>";
+		};
 		E5C03A2C1AFC6FFE00A08425 = {
 			isa = PBXGroup;
 			children = (
@@ -98,6 +175,7 @@
 				E5B6B3CC1B018C8800315651 /* GMSubjectView.swift */,
 				E5C03A411AFC6FFE00A08425 /* Images.xcassets */,
 				E5C03A431AFC6FFE00A08425 /* MainMenu.xib */,
+				E51AC5981B29167400FA2D56 /* Audio */,
 				E5C03A381AFC6FFE00A08425 /* Supporting Files */,
 			);
 			path = Gridmarks;
@@ -209,10 +287,33 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E51AC5821B29166600FA2D56 /* gridIndexTipAudio.m4a in Resources */,
+				E51AC5841B29166600FA2D56 /* gridLittleTipAudio.m4a in Resources */,
+				E51AC58F1B29166600FA2D56 /* pointLittleMCPAudio.m4a in Resources */,
+				E51AC5921B29166600FA2D56 /* pointMiddleTipAudio.m4a in Resources */,
+				E51AC58A1B29166600FA2D56 /* gridThumbTipAudio.m4a in Resources */,
+				E51AC5971B29166600FA2D56 /* pointUlnaAudio.m4a in Resources */,
+				E51AC58C1B29166600FA2D56 /* handInLapAudio.m4a in Resources */,
+				E51AC5941B29166600FA2D56 /* pointRingTipAudio.m4a in Resources */,
+				E51AC5871B29166600FA2D56 /* gridRingMCPAudio.m4a in Resources */,
+				E51AC5811B29166600FA2D56 /* gridIndexMCPAudio.m4a in Resources */,
+				E51AC5951B29166600FA2D56 /* pointThumbMCPAudio.m4a in Resources */,
+				E51AC5911B29166600FA2D56 /* pointMiddleMCPAudio.m4a in Resources */,
 				E5C03A421AFC6FFE00A08425 /* Images.xcassets in Resources */,
+				E51AC5931B29166600FA2D56 /* pointRingMCPAudio.m4a in Resources */,
+				E51AC5881B29166600FA2D56 /* gridRingTipAudio.m4a in Resources */,
+				E51AC58D1B29166600FA2D56 /* pointIndexMCPAudio.m4a in Resources */,
+				E51AC5861B29166600FA2D56 /* gridMiddleTipAudio.m4a in Resources */,
+				E51AC5831B29166600FA2D56 /* gridLittleMCPAudio.m4a in Resources */,
+				E51AC5961B29166600FA2D56 /* pointThumbTipAudio.m4a in Resources */,
+				E51AC5851B29166600FA2D56 /* gridMiddleMCPAudio.m4a in Resources */,
+				E51AC5891B29166600FA2D56 /* gridThumbMCPAudio.m4a in Resources */,
+				E51AC5901B29166600FA2D56 /* pointLittleTipAudio.m4a in Resources */,
 				E5C03A451AFC6FFE00A08425 /* MainMenu.xib in Resources */,
 				E5C03A601AFC75B400A08425 /* GMExperimenterWindow.xib in Resources */,
 				E5B6B3CB1B018BE700315651 /* GMSubjectWindow.xib in Resources */,
+				E51AC58B1B29166600FA2D56 /* gridUlnaAudio.m4a in Resources */,
+				E51AC58E1B29166600FA2D56 /* pointIndexTipAudio.m4a in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
