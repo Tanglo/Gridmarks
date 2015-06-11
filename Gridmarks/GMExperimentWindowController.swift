@@ -35,7 +35,8 @@ class GMExperimentWindowController: DRHExperimenterWindowController {
         "point_ringMCP":DRHAudioPlayer(URL: NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("pointRingMCPAudio", ofType: "m4a")!)!),
         "point_littleTip":DRHAudioPlayer(URL: NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("pointLittleTipAudio", ofType: "m4a")!)!),
         "point_littleMCP":DRHAudioPlayer(URL: NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("pointLittleMCPAudio", ofType: "m4a")!)!),
-        "point_ulna":DRHAudioPlayer(URL: NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("pointUlnaAudio", ofType: "m4a")!)!)
+        "point_ulna":DRHAudioPlayer(URL: NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("pointUlnaAudio", ofType: "m4a")!)!),
+        "handInLap":DRHAudioPlayer(URL: NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("handInLapAudio", ofType: "m4a")!)!)
     ]
     
     var pointingImage: NSBitmapImageRep?
@@ -309,6 +310,7 @@ class GMExperimentWindowController: DRHExperimenterWindowController {
             let captureImageData = AVCaptureStillImageOutput .jpegStillImageNSDataRepresentation(sampleBuffer)
             self.pointingImage = NSBitmapImageRep(data: captureImageData)
             })
+        spokenInstructions["handInLap"]!.play()
         takePictureButton!.enabled = false
     }
     
