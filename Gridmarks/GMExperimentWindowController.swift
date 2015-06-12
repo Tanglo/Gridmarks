@@ -36,7 +36,18 @@ class GMExperimentWindowController: DRHExperimenterWindowController {
         "point_littleTip":DRHAudioPlayer(URL: NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("pointLittleTipAudio", ofType: "m4a")!)!),
         "point_littleMCP":DRHAudioPlayer(URL: NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("pointLittleMCPAudio", ofType: "m4a")!)!),
         "point_ulna":DRHAudioPlayer(URL: NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("pointUlnaAudio", ofType: "m4a")!)!),
-        "handInLap":DRHAudioPlayer(URL: NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("handInLapAudio", ofType: "m4a")!)!)
+        "handInLap":DRHAudioPlayer(URL: NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("handInLapAudio", ofType: "m4a")!)!),
+        "grid_thumbTip":DRHAudioPlayer(URL: NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("gridThumbTipAudio", ofType: "m4a")!)!),
+        "grid_thumbMCP":DRHAudioPlayer(URL: NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("gridThumbMCPAudio", ofType: "m4a")!)!),
+        "grid_indexTip":DRHAudioPlayer(URL: NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("gridIndexTipAudio", ofType: "m4a")!)!),
+        "grid_indexMCP":DRHAudioPlayer(URL: NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("gridIndexMCPAudio", ofType: "m4a")!)!),
+        "grid_middleTip":DRHAudioPlayer(URL: NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("gridMiddleTipAudio", ofType: "m4a")!)!),
+        "grid_middleMCP":DRHAudioPlayer(URL: NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("gridMiddleMCPAudio", ofType: "m4a")!)!),
+        "grid_ringTip":DRHAudioPlayer(URL: NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("gridRingTipAudio", ofType: "m4a")!)!),
+        "grid_ringMCP":DRHAudioPlayer(URL: NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("gridRingMCPAudio", ofType: "m4a")!)!),
+        "grid_littleTip":DRHAudioPlayer(URL: NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("gridLittleTipAudio", ofType: "m4a")!)!),
+        "grid_littleMCP":DRHAudioPlayer(URL: NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("gridLittleMCPAudio", ofType: "m4a")!)!),
+        "grid_ulna":DRHAudioPlayer(URL: NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("gridUlnaAudio", ofType: "m4a")!)!)
     ]
     
     var pointingImage: NSBitmapImageRep?
@@ -63,6 +74,10 @@ class GMExperimentWindowController: DRHExperimenterWindowController {
         trialLabel!.stringValue = "-"
         conditionLabel!.stringValue = "-"
         landmarkLabel!.stringValue = "-"
+        
+        spokenInstructions["handInLap"]!.setPlaybackDidEndSelector("enableNextTrialButton", withObject: self)
+        spokenInstructions["handInLap"]!.shouldCallPlaybackDidEndSelector = true
+        let test1 = spokenInstructions["handInLap"]!
     }
     
     override func experimentIsFinished() -> Bool {
@@ -211,15 +226,16 @@ class GMExperimentWindowController: DRHExperimenterWindowController {
                 trialLabel!.stringValue = "\(currentTrial)"
                 conditionLabel!.stringValue = "\(conditions[trialSettings[0] as! Int]!)"
                 landmarkLabel!.stringValue = "\(landmarks[trialSettings[1] as! Int]!)"
+                var audioName: String?
                 if trialSettings[0] as! Int == 0 {  //i.e. pointing task
                     responseField!.enabled = false
                     takePictureButton!.enabled = true
+                    nextTrialButton!.enabled = false
                     subjectView!.gridRect.size = NSSize(width: 0, height: 0)
                     subjectView!.needsDisplay = true
                     ((document! as! GMDocument).subjectWindowController as! GMSubjectWindowController).gridView?.blank = true
                     ((document! as! GMDocument).subjectWindowController as! GMSubjectWindowController).gridView?.needsDisplay = true
-                    let audioName = "point_" + landmarks[trialSettings[1] as! Int]!
-                    spokenInstructions[audioName]!.play()
+                    audioName = "point_" + landmarks[trialSettings[1] as! Int]!
                 } else {    //i.e. grid task
                     responseField!.enabled = true
                     takePictureButton!.enabled = false
@@ -229,6 +245,12 @@ class GMExperimentWindowController: DRHExperimenterWindowController {
                     ((document! as! GMDocument).subjectWindowController as! GMSubjectWindowController).gridView?.gridRect.size = NSSize(width: 1500, height: 1060)
                     ((document! as! GMDocument).subjectWindowController as! GMSubjectWindowController).gridView?.needsDisplay = true
                     window?.makeFirstResponder(responseField)
+                    audioName = "grid_" + landmarks[trialSettings[1] as! Int]!
+                }
+                if audioName != nil {
+                    spokenInstructions[audioName!]!.play()
+                } else {
+                    NSBeep()
                 }
             } else {
                 nextTrialButton!.enabled = false
@@ -264,7 +286,7 @@ class GMExperimentWindowController: DRHExperimenterWindowController {
 //            println("response: \(response)")
             if response != ""{
                 let (x,y) = ((document! as! GMDocument).subjectWindowController as! GMSubjectWindowController).gridView!.gridReferenceOfLabel(response)
-                println("\(x),\(y)")
+//                println("\(x),\(y)")
                 if x != nil {
                     newValue = LBPoint(point:(x!,y!))
                     responseField!.stringValue = ""
@@ -349,6 +371,10 @@ class GMExperimentWindowController: DRHExperimenterWindowController {
             errorAlert.runModal()
         }
         
+    }
+    
+    func enableNextTrialButton(){
+        nextTrialButton!.enabled = true
     }
 }
 
