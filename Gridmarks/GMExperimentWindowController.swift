@@ -126,7 +126,7 @@ class GMExperimentWindowController: DRHExperimenterWindowController {
                     (document! as! GMDocument).experimentData.experimentPath = savePanel.URL!.path!.stringByDeletingLastPathComponent
 
                     //set up any directory structure
-                    (document! as! GMDocument).experimentData.createExperimentSubdirectory((document! as! GMDocument).experimentData.experimentSession + " images")
+                    (document! as! GMDocument).experimentData.createExperimentSubdirectory((document! as! GMDocument).experimentData.experimentFilenameStem + " images")
                     
                     saved = true
                 } else {
@@ -271,6 +271,7 @@ class GMExperimentWindowController: DRHExperimenterWindowController {
         var newValue: AnyObject = Double.NaN
         if trialData[0] as! Int == 0 {  //point task
             if pointingImage != nil {
+                println("Pointing image")
                 newValue = pointingImage!
                 pointingImage = nil
             } else {
@@ -348,6 +349,7 @@ class GMExperimentWindowController: DRHExperimenterWindowController {
                     let pngData = (observation[2] as! NSBitmapImageRep).representationUsingType(NSBitmapImageFileType.NSPNGFileType, properties: [NSObject: AnyObject]())
                     let fileName = "\((document! as! GMDocument).experimentData.experimentSubject)_Trial-\(i).png"
                     let filePath = "\((document! as! GMDocument).experimentData.experimentPath)/\((document! as! GMDocument).experimentData.experimentFilenameStem) images/\(fileName)"
+                    pngData!.writeToFile(filePath, atomically: true)
                     dataString += "\(fileName)"
                 }
             } else {                    //grid task
