@@ -271,7 +271,7 @@ class GMExperimentWindowController: DRHExperimenterWindowController {
         var newValue: AnyObject = Double.NaN
         if trialData[0] as! Int == 0 {  //point task
             if pointingImage != nil {
-                println("Pointing image")
+//                println("Pointing image")
                 newValue = pointingImage!
                 pointingImage = nil
             } else {
@@ -339,11 +339,11 @@ class GMExperimentWindowController: DRHExperimenterWindowController {
     
     func exportData() {
         let dataMatrix = (document! as! GMDocument).experimentData.experimentDataMatrix
-        var dataString = "condition, landmark, response\n"
+        var dataString = "trial, condition, landmark, response\n"
         let numObs = dataMatrix.numberOfObservations()
         for i in 0..<numObs {
             let observation = dataMatrix.observationAtIndex(i)
-            dataString += "\(observation[0]), \(observation[1]), "
+            dataString += "\(i), \(observation[0]), \(observation[1]), "
             if (observation[0] as! Int) == 0 {    //pointing task
                 if observation[2] is NSBitmapImageRep {
                     let pngData = (observation[2] as! NSBitmapImageRep).representationUsingType(NSBitmapImageFileType.NSPNGFileType, properties: [NSObject: AnyObject]())
@@ -366,7 +366,7 @@ class GMExperimentWindowController: DRHExperimenterWindowController {
         let fileDate = DRHFileDate(date: (document! as! GMDocument).experimentData.experimentDate)
         filePath += "\(fileDate.dateString())"
         filePath += "_data.csv"
-        println("\(filePath)")
+//        println("\(filePath)")
         var writeError: NSError?
         if !dataString.writeToFile(filePath, atomically: true, encoding: NSUnicodeStringEncoding, error: &writeError) {
             let errorAlert = NSAlert(error: writeError!)
