@@ -49,6 +49,7 @@ class GMExperimentWindowController: DRHExperimenterWindowController {
         "grid_littleMCP":DRHAudioPlayer(URL: NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("gridLittleMCPAudio", ofType: "m4a")!)!),
         "grid_ulna":DRHAudioPlayer(URL: NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("gridUlnaAudio", ofType: "m4a")!)!)
     ]
+    var currentInstruction = DRHAudioPlayer()
     
     var pointingImage: NSBitmapImageRep?
     
@@ -249,7 +250,8 @@ class GMExperimentWindowController: DRHExperimenterWindowController {
                     audioName = "grid_" + landmarks[trialSettings[1] as! Int]!
                 }
                 if audioName != nil {
-                    spokenInstructions[audioName!]!.play()
+                    currentInstruction = spokenInstructions[audioName!]!
+                    currentInstruction.play()
                 } else {
                     NSBeep()
                 }
@@ -378,6 +380,10 @@ class GMExperimentWindowController: DRHExperimenterWindowController {
     
     func enableNextTrialButton(){
         nextTrialButton!.enabled = true
+    }
+    
+    @IBAction func repeatInstruction(sender: AnyObject){
+        currentInstruction.play()
     }
 }
 

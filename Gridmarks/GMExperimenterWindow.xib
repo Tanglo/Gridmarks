@@ -31,7 +31,7 @@
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
             <rect key="contentRect" x="196" y="240" width="604" height="589"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="1280" height="1001"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1057"/>
             <view key="contentView" id="EiT-Mj-1SZ">
                 <rect key="frame" x="0.0" y="0.0" width="604" height="589"/>
                 <autoresizingMask key="autoresizingMask"/>
@@ -347,6 +347,20 @@
                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
+                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="K1r-N5-xfc">
+                        <rect key="frame" x="364" y="339" width="153" height="32"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="21" id="I9A-8b-fiq"/>
+                            <constraint firstAttribute="width" constant="141" id="YLj-mj-3Gs"/>
+                        </constraints>
+                        <buttonCell key="cell" type="push" title="Repeat instruction" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="cId-bC-JrJ">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="repeatInstruction:" target="-2" id="GWB-L6-68h"/>
+                        </connections>
+                    </button>
                 </subviews>
                 <constraints>
                     <constraint firstItem="TfY-MG-NGY" firstAttribute="top" secondItem="Q3y-ox-D6D" secondAttribute="bottom" constant="8" id="3yp-gS-POC"/>
@@ -370,9 +384,11 @@
                     <constraint firstItem="Wix-Nz-8JR" firstAttribute="top" secondItem="TfY-MG-NGY" secondAttribute="bottom" constant="8" id="T1y-dT-fKW"/>
                     <constraint firstItem="gZD-uh-ib8" firstAttribute="top" secondItem="Wix-Nz-8JR" secondAttribute="bottom" constant="8" id="TxY-SE-pUl"/>
                     <constraint firstItem="NX0-a3-btp" firstAttribute="top" secondItem="Pr6-0o-QOt" secondAttribute="bottom" constant="8" id="U1j-XS-5NW"/>
+                    <constraint firstAttribute="trailing" secondItem="K1r-N5-xfc" secondAttribute="trailing" constant="93" id="ULs-rj-b2i"/>
                     <constraint firstItem="Q3y-ox-D6D" firstAttribute="leading" secondItem="EiT-Mj-1SZ" secondAttribute="leading" constant="20" id="Wj7-Gl-bB7"/>
                     <constraint firstItem="xdM-en-0Pq" firstAttribute="top" secondItem="H9G-NY-ZUe" secondAttribute="bottom" constant="4" id="Y8A-jd-Cdq"/>
                     <constraint firstItem="Wpz-8j-i1f" firstAttribute="leading" secondItem="gZD-uh-ib8" secondAttribute="trailing" constant="16" id="Zqr-dO-QNC"/>
+                    <constraint firstItem="ccG-8Q-Hux" firstAttribute="top" secondItem="K1r-N5-xfc" secondAttribute="bottom" constant="7" id="b2l-oU-INl"/>
                     <constraint firstItem="H9G-NY-ZUe" firstAttribute="top" secondItem="HUM-sf-KsK" secondAttribute="bottom" constant="3" id="bfC-QY-KSg"/>
                     <constraint firstItem="0Eb-vg-LNh" firstAttribute="leading" secondItem="EiT-Mj-1SZ" secondAttribute="leading" constant="20" id="bfh-hg-43a"/>
                     <constraint firstItem="HUM-sf-KsK" firstAttribute="top" secondItem="SNs-m4-1Td" secondAttribute="bottom" constant="55" id="e5J-9J-5DK"/>
