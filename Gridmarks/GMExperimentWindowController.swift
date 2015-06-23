@@ -244,6 +244,7 @@ class GMExperimentWindowController: DRHExperimenterWindowController {
                     ((document! as! GMDocument).subjectWindowController as! GMSubjectWindowController).gridView?.blank = false
                     ((document! as! GMDocument).subjectWindowController as! GMSubjectWindowController).gridView?.gridRect.size = NSSize(width: 1500, height: 1060)
                     ((document! as! GMDocument).subjectWindowController as! GMSubjectWindowController).gridView?.needsDisplay = true
+                    ((document! as! GMDocument).subjectWindowController as! GMSubjectWindowController).gridView?.displayIfNeeded()
                     window?.makeFirstResponder(responseField)
                     audioName = "grid_" + landmarks[trialSettings[1] as! Int]!
                 }
