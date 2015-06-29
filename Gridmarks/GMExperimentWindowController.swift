@@ -97,10 +97,10 @@ class GMExperimentWindowController: DRHExperimenterWindowController {
                 (document! as! GMDocument).experimentData.experimentDate = experimentDatePicker().dateValue
                 initialiseExperiment()
                 let fileDate = DRHFileDate(date: (document! as! GMDocument).experimentData.experimentDate)
-                var fileName = "\((document! as! GMDocument).experimentData.experimentFilenameStem)_"
-                fileName += "\((document! as! GMDocument).experimentData.experimentSubject)_"
-                fileName += "\((document! as! GMDocument).experimentData.experimentSession)_"
-                fileName += "\(fileDate.dateString())"
+                var fileName = "\((document! as! GMDocument).experimentData.experimentFilenameStem)" //_"
+//                fileName += "\((document! as! GMDocument).experimentData.experimentSubject)_"
+  //              fileName += "\((document! as! GMDocument).experimentData.experimentSession)_"
+ //               fileName += "\(fileDate.dateString())"
                 let savePanel = NSSavePanel()
                 savePanel.nameFieldStringValue = fileName
                 savePanel.directoryURL = NSURL(fileURLWithPath: (document! as! GMDocument).experimentData.experimentPath)
@@ -363,11 +363,11 @@ class GMExperimentWindowController: DRHExperimenterWindowController {
             dataString += "\n"
         }
         var filePath = "\((document! as! GMDocument).experimentData.experimentPath)/"
-        filePath += "\((document! as! GMDocument).experimentData.experimentFilenameStem)_"
-        filePath += "\((document! as! GMDocument).experimentData.experimentSubject)_"
-        filePath += "\((document! as! GMDocument).experimentData.experimentSession)_"
-        let fileDate = DRHFileDate(date: (document! as! GMDocument).experimentData.experimentDate)
-        filePath += "\(fileDate.dateString())"
+        filePath += "\((document! as! GMDocument).experimentData.experimentFilenameStem)"
+//        filePath += "\((document! as! GMDocument).experimentData.experimentSubject)_"
+//        filePath += "\((document! as! GMDocument).experimentData.experimentSession)_"
+//        let fileDate = DRHFileDate(date: (document! as! GMDocument).experimentData.experimentDate)
+//        filePath += "\(fileDate.dateString())"
         filePath += "_data.csv"
 //        println("\(filePath)")
         var writeError: NSError?
