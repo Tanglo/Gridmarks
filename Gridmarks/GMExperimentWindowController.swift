@@ -342,11 +342,11 @@ class GMExperimentWindowController: DRHExperimenterWindowController {
     
     func exportData() {
         let dataMatrix = (document! as! GMDocument).experimentData.experimentDataMatrix
-        var dataString = "trial, condition, landmark, response\n"
+        var dataString = "trial,condition,landmark,response\n"
         let numObs = dataMatrix.numberOfObservations()
         for i in 0..<numObs {
             let observation = dataMatrix.observationAtIndex(i)
-            dataString += "\(i), \(observation[0]), \(observation[1]), "
+            dataString += "\(i),\(observation[0]),\(observation[1]),"
             if (observation[0] as! Int) == 0 {    //pointing task
                 if observation[2] is NSBitmapImageRep {
                     let pngData = (observation[2] as! NSBitmapImageRep).representationUsingType(NSBitmapImageFileType.NSPNGFileType, properties: [NSObject: AnyObject]())
@@ -357,7 +357,7 @@ class GMExperimentWindowController: DRHExperimenterWindowController {
                 }
             } else {                    //grid task
                 if observation[2] is LBPoint {
-                    dataString += "\(Int((observation[2] as! LBPoint).x)), \(Int((observation[2] as! LBPoint).y))"
+                    dataString += "\(Int((observation[2] as! LBPoint).x)),\(Int((observation[2] as! LBPoint).y))"
                 }
             }
             dataString += "\n"
